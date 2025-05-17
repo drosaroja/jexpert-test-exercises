@@ -3,8 +3,19 @@ import { ejecutarConCallback, ServicioExterno, Cliente } from './funciones.js'
 
 describe('Mocking de Funciones', () => {
   describe('vi.fn() - Mockear funciones', () => {
-    it('debe llamar al callback con el resultado correcto', () => {
+    it.only('debe llamar al callback con el resultado correcto', () => {
+      const operacion = (arg1, arg2) => {
+        return arg1 + arg2
+      }
+    const a = 1
+    const b = 2
+      const resultado = operacion(a, b)
+
+      const callback = vi.fn()
       
+      ejecutarConCallback(operacion, a, b, callback)
+
+      expect(callback).toHaveBeenCalledWith(resultado)
     })
   })
 
