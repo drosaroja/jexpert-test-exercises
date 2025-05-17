@@ -4,13 +4,16 @@ import { suma, crearUsuario, obtenerTipo } from './funciones.js'
 describe('Aserciones básicas', () => {
   describe('Función suma', () => {
     it('debe sumar dos números correctamente', () => {
+      //Arrange
       const a = 1
       const b = 2
       const resultadoEsperado = 3
 
+      //Act
       const resultado = suma(a, b)
-      expect(resultado).toBe(resultadoEsperado)
 
+      //Assert
+      expect(resultado).toBe(resultadoEsperado)
     })
     
     it('debe retornar un número', () => {
@@ -27,7 +30,18 @@ describe('Aserciones básicas', () => {
   
   describe('Función crearUsuario', () => {
     it('debe crear un objeto con las propiedades correctas', () => {
-      
+      const nombre = 'Luna'
+      const edad = 38
+      const nuevoUsuario = {
+        nombre: nombre,
+        edad: edad,
+        activo: true,
+        fecha: new Date()
+      }
+
+      const usuario = crearUsuario(nombre, edad)
+
+      expect(usuario).toEqual(nuevoUsuario)
     })
     
     it('debe asignar el nombre correctamente', () => {
