@@ -4,15 +4,24 @@ import { suma, crearUsuario, obtenerTipo } from './funciones.js'
 describe('Aserciones básicas', () => {
   describe('Función suma', () => {
     it('debe sumar dos números correctamente', () => {
-      
+      const a = 1
+      const b = 2
+      const resultadoEsperado = 3
+
+      const resultado = suma(a, b)
+      expect(resultado).toBe(resultadoEsperado)
+
     })
     
     it('debe retornar un número', () => {
+     const resultado = suma(2, 3);
+     expect(typeof resultado).toBe('number')
       
     })
     
     it('debe manejar números negativos', () => {
-      
+      const resultado = suma(-1, -2)
+      expect(resultado).toBe(-3)
     })
   })
   
